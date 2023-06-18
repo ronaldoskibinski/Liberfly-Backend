@@ -10,8 +10,8 @@
             <form action="api/auth/login" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Email:</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha:</label>

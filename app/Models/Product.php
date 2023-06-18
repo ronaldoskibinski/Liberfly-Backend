@@ -7,7 +7,7 @@ use App\Models\BaseModel;
 
 class Product extends BaseModel
 {
-    protected $table = "products";
+    protected $table = 'products';
 
     /**
      * The attributes that are mass assignable.

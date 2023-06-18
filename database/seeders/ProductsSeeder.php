@@ -26,7 +26,5 @@ class ProductsSeeder extends Seeder
                 "value" => $reg["value"],
             ]);
         }
-
-
     }
 }

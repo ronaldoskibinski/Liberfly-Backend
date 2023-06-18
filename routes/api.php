@@ -19,10 +19,10 @@ use App\Http\Controllers\UserController;
 */
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
-    Route::post('new-user', [AuthController::class, 'app.new_user']);
-    Route::post('me', [AuthController::class, 'app.me']);
-    Route::post('login', [AuthController::class, 'app.login']);
-    Route::post('logout', [AuthController::class, 'app.logout']);
+    Route::post('new-user', [AuthController::class, 'newUser']);
+    Route::post('me', [AuthController::class, 'me']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout']);
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'user'], function ($router) {

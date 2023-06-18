@@ -118,24 +118,6 @@ abstract class BaseCrudController extends Controller
         return response()->json($this->service->repository->findByID($id, true, $this->showWith), 200);
     }
 
-    protected function storeFile($data) {
-        $image_64 = $data['imagem'];
-
-        $extension = explode('/', explode(':', substr($image_64, 0, strpos($image_64, ';')))[1])[1];   // .jpg .png .pdf
-
-        $replace = substr($image_64, 0, strpos($image_64, ',')+1);
-
-        $image = str_replace($replace, '', $image_64);
-
-        $image = str_replace(' ', '+', $image);
-
-        $imageName = Str::random(10).'.'.$extension;
-
-        Storage::disk(env("FILESYSTEM_DRIVER", 'local'))->put($this->filePath . $imageName, base64_decode($image), 'public');
-
-        return $imageName;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -145,10 +127,6 @@ abstract class BaseCrudController extends Controller
     public function store(Request $request)
     {
         $data = $request->json()->all();
-
-        if (isset($data["imagem_base64"])) {
-            $data["imagem"] = $this->storeFile(["imagem" => $data["imagem_base64"]]);
-        }
 
         if (isset($data["password"])) {
             $data["password"] = Hash::make($data["password"]);
@@ -177,10 +155,6 @@ abstract class BaseCrudController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->json()->all();
-
-        if (isset($data["imagem_base64"])) {
-            $data["imagem"] = $this->storeFile(["imagem" => $data["imagem_base64"]]);
-        }
 
         $validator = $this->buildValidator($data);
 
