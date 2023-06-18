@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -18,25 +19,26 @@ use App\Http\Controllers\API\ProductController;
 */
 
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], function ($router) {
-    Route::post('new-user', [AuthController::class, 'newUser']);
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('new-user', [AuthController::class, 'app.new_user']);
+    Route::post('me', [AuthController::class, 'app.me']);
+    Route::post('login', [AuthController::class, 'app.login']);
+    Route::post('logout', [AuthController::class, 'app.logout']);
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'user'], function ($router) {
-    Route::get('', [UserController::class, 'index'])->name("Find Users");
-    Route::get('count', [UserController::class, 'count'])->name("Users Quantity");
-    Route::get('{id}', [UserController::class, 'show'])->name("Find User By Id");
-    Route::post('', [UserController::class, 'store'])->name("Create User");
-    Route::put('{id}', [UserController::class, 'update'])->name("Update User");
-    Route::delete('{id}', [UserController::class, 'destroy'])->name("Delete User");
+    Route::get('', [UserController::class, 'index'])->name("app.find_users");
+    Route::get('count', [UserController::class, 'count'])->name("app.users_quantity");
+    Route::get('{id}', [UserController::class, 'show'])->name("app.find_user_by_id");
+    Route::post('', [UserController::class, 'store'])->name("app.create_user");
+    Route::put('{id}', [UserController::class, 'update'])->name("app.update_user");
+    Route::delete('{id}', [UserController::class, 'destroy'])->name("app.delete_user");
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'product'], function ($router) {
-    Route::get('', [ProductController::class, 'index'])->name("Find Products");
-    Route::get('count', [ProductController::class, 'count'])->name("Products Quantity");
-    Route::get('{id}', [ProductController::class, 'show'])->name("Find Product By Id");
-    Route::post('', [ProductController::class, 'store'])->name("Create Product");
-    Route::put('{id}', [ProductController::class, 'update'])->name("Update Product");
-    Route::delete('{id}', [ProductController::class, 'destroy'])->name("Delete Product");
+    Route::get('', [ProductController::class, 'index'])->name("app.find_products");
+    Route::get('count', [ProductController::class, 'count'])->name("app.products_quantity");
+    Route::get('{id}', [ProductController::class, 'show'])->name("app.find_product_by_id");
+    Route::post('', [ProductController::class, 'store'])->name("app.create_product");
+    Route::put('{id}', [ProductController::class, 'update'])->name("app.update_product");
+    Route::delete('{id}', [ProductController::class, 'destroy'])->name("app.delete_product");
 });

@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Arroz",
+		"code": "a12310",
+		"value": 10.50
+	},
+	{
+		"name": "Feijão",
+		"code": "a23340",
+		"value": 9.20
+	},
+	{
+		"name": "Filé de Peito",
+		"code": "a25407",
+		"value": 15.90
+	},
+	{
+		"name": "Pão Integral",
+		"code": "b28402",
+		"value": 11.90
+	}
+]
