@@ -125,6 +125,7 @@ docker-compose exec app php artisan db:seed --class=ProductsSeeder
 ### Dicas de Utilização ###
 
 Para paginar utilize: localhost:8000/api/product?page=1&take=10 (?page=1&take=10)
+
 Para filtrar um produto por nome utilize: localhost:8000/api/product?page=1&take=10&name=Nome (&name= "Letra ou nome do produto", o método usado é por like %%)
 
 
