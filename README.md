@@ -128,7 +128,13 @@ Para paginar utilize: localhost:8000/api/product?page=1&take=10 (?page=1&take=10
 
 Para filtrar um produto por nome utilize: localhost:8000/api/product?page=1&take=10&name=Nome (&name= "Letra ou nome do produto", o método usado é por like %%)
 
-Para rodar os testes use o comando:
-- $ php artisan test
+
+- Para rodar os testes use o comando:
+
+```
+
+$ php artisan test
+
+```
 
 
