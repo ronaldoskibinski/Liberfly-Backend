@@ -17,16 +17,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-/** @OA\Info(title="API Liberfly", version="1.0.0")
- * @OA\SecurityScheme(
- *     type="http",
- *     description="Auth Controller",
- *     in="header",
- *     scheme="bearer",
- *     bearerFormat="JWT",
- *     securityScheme="bearerAuth",
- * )
- */
 class AuthController extends Controller
 {
     private $service;
