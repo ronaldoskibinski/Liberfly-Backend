@@ -42,6 +42,8 @@ Logo depois, execute o próximo comando para criar os usuários padrão, assim c
 
 php artisan db:seed;
 
+php artisan db:seed --class=ProductsSeeder;
+
 ```
 
 
